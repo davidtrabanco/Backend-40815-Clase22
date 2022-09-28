@@ -14,10 +14,7 @@ const io = new IOServer(httpServer);
 initWebSocket(io);
 
 //Defino las rutas
-app.set("view engine", "ejs")
 app.use(express.static('./public'));
-
-app.set("views", "./src/views")
 
 //Inicio el servidor:
 const PORT = process.env.PORT || 8080
