@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desafío Clase 12</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/ejs.min.js"></script>
+
+    <script type="module" src="./js/index.js"></script>
+  
+
+</head>
+<body>
+    <h3>Desafío Clase 12</h3>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <h5>Ingresar Nuevo Producto</h5>
+            <form id="newProductFrom">
+                <div class="three columns">
+                    <label for="prod-name">Nombre</label>
+                    <input id="prod-name" type="text" name="title" required class="u-full-width">
+                </div>
+                <div class="three columns">
+                    <label for="prod-price">Precio</label>
+                    <input id="prod-price" type="number" name="price" required class="u-full-width">
+                </div>
+                <div class="three columns">
+                    <label for="prod-img">Imágen</label>
+                    <input id="prod-img" type="text" name="thumbnail" class="u-full-width">
+                </div>
+                <div class="three columns">
+                    <label for="add-product">.</label>
+                    <button type="submit" id="add-product" class="add-product button-primary" form="newProductFrom">Agregar</button>
+                </div>  
+            </form>
+        </div>
+    </div>
+    
+
+
+    <div class="container">
+        <div class="row">
+            <h5>Productos</h5>
+            <div class="product-list"></div>
+        </div>
+
+    </div>
+    
+    <hr>
+
+    <div class="container">
+
+        <div class="row">
+
+            <h5>Chat!</h5>
+
+            <form action="">
+                
+                <div class="u-full-width">
+                    <label for="chat-email">email</label>
+                    <input id="chat-email" type="text" required >
+                </div>
+                
+                <div class="u-full-width">
+                    <ul class="messagesList u-full-width">
+                        <!-- CHAT -->
+                    </ul>
+                </div>
+                
+                <div class="u-full-width">
+                    <input class="four columns" id="chat-msg" type="text" required>
+                    <button class="chat-send button-primary" type="submit">Enviar</button>
+                </div>
+               
+            </form>
+    
+        </div>
+
+    </div>
+    
+
+
+    
+
+</body>
+</html>
