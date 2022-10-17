@@ -1,8 +1,20 @@
-import {chatStore} from "./FileManager.js";
+import dbManager from "../models/dbManager.js";
+import {dbChatConfig} from "../config/dbConnections.js";
+
+//Defino la estructura de la tabla:
+const tableStructure = (table) => {
+    table.increments('id').primary();
+    table.string('email', 64);
+    table.string('message', 256);
+    table.string('date', 16);
+}
+
+//creo el controlador de la tabla
+const tableChat = new dbManager(dbChatConfig, "chatHistoric", tableStructure)
+
+let chatBuffer = await tableChat.retrieveAllRecords();
 
 export const chatController = {};
-
-let chatBuffer = await chatStore.readFileJSON();
 
 chatController.getAll = () =>{
     return chatBuffer;
@@ -10,5 +22,5 @@ chatController.getAll = () =>{
 
 chatController.addMsg =  (msg) =>{
     chatBuffer.push(msg);
-    chatStore.writeFileJSON( chatBuffer )
+    tableChat.insertRecord(msg);
 }

@@ -1,7 +1,7 @@
 import express from "express";
 import { Server as IOServer } from "socket.io";
 import { Server as HttpServer } from "http";
-import {initWebSocket} from "./src/routers/socket.js";
+import {initWebSocket} from "./routes/socket.js";
 
 //Defino el servidor
 const app = express();
@@ -17,7 +17,7 @@ initWebSocket(io);
 app.use(express.static('./public'));
 
 //Inicio el servidor:
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080;
 const server = httpServer.listen( PORT, ()=>{
     console.log(`Server UP on PORT:${server.address().port}`);
 })

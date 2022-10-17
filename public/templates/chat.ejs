@@ -1,5 +1,5 @@
 <% if( messages.length > 0 ) { %>
     <% messages.forEach( message => { %>
-        <li class="u-full-width"> <span><%= message.email %></span> <span><i>[<%= message.date %>]</i></span>: <span><b><%= message.msg %></b></li></span>
+        <li class="u-full-width"> <span><%= message.email %></span> <span><i>[<%= message.date %>]</i></span>: <span><b><%= message.message %></b></li></span>
     <% }); %>
 <% } %>

@@ -46,6 +46,31 @@
         </div>
     </div>
     
+    <div class="container">
+        <div class="row">
+            <h6>Filtrar productos</h6>
+            <form action="" id="filterProducts">
+                <select name="column" id="fColumn">
+                    <option value="id" selected>ID</option>
+                    <option value="title">Producto</option>
+                    <option value="price">Precio</option>
+                </select>
+                <select name="comparison" id="fComparison">
+                    <option value="="selected>igual a</option>
+                    <option value="!=">diferente de</option>
+                    <option value="<">menor a</option>
+                    <option value=">">mayor a</option>
+                    <option value="<=">menor o igual a</option>
+                    <option value=">=">mayor o igual a</option>
+                </select>
+                <input type="text"  name="value" id="fValue" placeholder="valor" required>
+                <button type="submit"  class="filterProd button-primary" form="filterProducts">Filtrar</button>
+            </form>
+    
+        </div>
+    </div>
+        
+        
 
 
     <div class="container">
