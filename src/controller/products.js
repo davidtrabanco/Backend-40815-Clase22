@@ -1,5 +1,6 @@
-import dbManager from "../models/dbManager.js";
+import dbManager from "../models/MySQLmanager.js";
 import {dbProductsConfig} from "../config/dbConnections.js";
+import {getProductsFake} from "../models/fakerManager.js"
 
 //Defino la estructura de la tabla:
 const tableStructure = (table) => {
@@ -15,10 +16,15 @@ const tableProducts = new dbManager( dbProductsConfig, "products", tableStructur
 export const prodController = {};
 
 prodController.getAll = async () =>{
-    const products = await tableProducts.retrieveAllRecords();
+    // const products = await tableProducts.retrieveAllRecords();
+    // const prodFound = products.length > 0 ? true : false;
+    // return { productsList: products, prodFound: prodFound }
+
+    //OBTENGO DESDE FAKER:
+    const products = await getProductsFake(5);
     const prodFound = products.length > 0 ? true : false;
-    
-    return { productsList: products, prodFound: prodFound }
+    console.log( 'FAKER GENERADO');
+    return { productsList:  products, prodFound: prodFound }
 }
 
 prodController.add = async (newProduct) =>{

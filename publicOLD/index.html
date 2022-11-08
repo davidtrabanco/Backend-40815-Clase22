@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desafío Clase 12</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/ejs.min.js"></script>
+
+    <script type="module" src="./js/index.js"></script>
+  
+
+</head>
+<body>
+    <h3>Desafío Clase 12</h3>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <h5>Ingresar Nuevo Producto</h5>
+            <form id="newProductFrom">
+                <div class="three columns">
+                    <label for="prod-name">Nombre</label>
+                    <input id="prod-name" type="text" name="title" required class="u-full-width">
+                </div>
+                <div class="three columns">
+                    <label for="prod-price">Precio</label>
+                    <input id="prod-price" type="number" name="price" required class="u-full-width">
+                </div>
+                <div class="three columns">
+                    <label for="prod-img">Imágen</label>
+                    <input id="prod-img" type="text" name="thumbnail" class="u-full-width">
+                </div>
+                <div class="three columns">
+                    <label for="add-product">.</label>
+                    <button type="submit" id="add-product" class="add-product button-primary" form="newProductFrom">Agregar</button>
+                </div>  
+            </form>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <h6>Filtrar productos</h6>
+            <form action="" id="filterProducts">
+                <select name="column" id="fColumn">
+                    <option value="id" selected>ID</option>
+                    <option value="title">Producto</option>
+                    <option value="price">Precio</option>
+                </select>
+                <select name="comparison" id="fComparison">
+                    <option value="="selected>igual a</option>
+                    <option value="!=">diferente de</option>
+                    <option value="<">menor a</option>
+                    <option value=">">mayor a</option>
+                    <option value="<=">menor o igual a</option>
+                    <option value=">=">mayor o igual a</option>
+                </select>
+                <input type="text"  name="value" id="fValue" placeholder="valor" required>
+                <button type="submit"  class="filterProd button-primary" form="filterProducts">Filtrar</button>
+            </form>
+    
+        </div>
+    </div>
+        
+        
+
+
+    <div class="container">
+        <div class="row">
+            <h5>Productos</h5>
+            <div class="product-list"></div>
+        </div>
+
+    </div>
+    
+    <hr>
+
+    <div class="container">
+
+        <div class="row">
+
+            <h5>Chat!</h5>
+
+            <form action="">
+                
+                <!-- <div class="u-full-width">
+                    <label for="chat-email">email</label>
+                    <input id="chat-email" type="text" required >
+                </div> -->
+
+                <div>
+                    e-mail <input type="email" id="msj.email" required placeholder="usuario@dominio.com" form="sendMessageForm">
+                    Nombre <input type="text" id="msj.name" required placeholder="Pepe" form="sendMessageForm">
+                    Apellido <input type="text" id="msj.lastname" required placeholder="Gomez" form="sendMessageForm">
+                    Edad <input type="number" id="msj.age" required placeholder="34" form="sendMessageForm">
+                    Alias <input type="text" id="msj.nickname" required placeholder="Pepito" form="sendMessageForm">
+                    Avatar <input type="text" id="msj.avatar" placeholder="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-256.png" form="sendMessageForm">
+
+                </div>
+
+                
+                <div class="u-full-width">
+                    <ul class="messagesList u-full-width">
+                        <!-- CHAT -->
+                    </ul>
+                </div>
+                
+                <input type="text" id="msj.message" class="five columns" required form="sendMessageForm" placeholder="Mensaje">
+                <button type="submit" form="sendMessageForm" class="bttnSendMsg button-primary">Enviar</button>
+               
+            </form>
+    
+        </div>
+
+    </div>
+    
+<!-- 
+    <div class="row">
+        <h4 id="msgTitle"> </h4>
+
+            <form onsubmit="" id="sendMessageForm">
+                <div>
+                    e-mail <input type="email" id="msj.email" required placeholder="usuario@dominio.com" form="sendMessageForm">
+                    Nombre <input type="text" id="msj.name" required placeholder="Pepe" form="sendMessageForm">
+                    Apellido <input type="text" id="msj.lastname" required placeholder="Gomez" form="sendMessageForm">
+                    Edad <input type="number" id="msj.age" required placeholder="34" form="sendMessageForm">
+                    Alias <input type="text" id="msj.nickname" required placeholder="Pepito" form="sendMessageForm">
+                    Avatar <input type="text" id="msj.avatar" placeholder="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-256.png" form="sendMessageForm">
+
+                </div>
+
+                <div class='chat'>
+                    <ul class="messagesList">
+                       
+                    </ul>
+                </div>
+
+                <div>
+            
+                <input type="text" id="msj.message" class="five columns" required form="sendMessageForm" placeholder="Mensaje">
+                <button type="submit" form="sendMessageForm" class="bttnSendMsg button-primary">Enviar</button>
+            </form>
+
+        </div>
+    </div> -->
+    
+
+</body>
+</html>

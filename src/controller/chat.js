@@ -1,26 +1,32 @@
-import dbManager from "../models/dbManager.js";
-import {dbChatConfig} from "../config/dbConnections.js";
+import {chatDbDAO} from "../DAOs/index.js"
+import {chatNormalizerDAO} from "../DAOs/index.js"
 
-//Defino la estructura de la tabla:
-const tableStructure = (table) => {
-    table.increments('id').primary();
-    table.string('email', 64);
-    table.string('message', 256);
-    table.string('date', 16);
-}
 
-//creo el controlador de la tabla
-const tableChat = new dbManager(dbChatConfig, "chatHistoric", tableStructure)
+let chatBuffer = await chatDbDAO.getDocuments();
+console.log('Se obtuvo el historial de Chat desde DB');
 
-let chatBuffer = await tableChat.retrieveAllRecords();
 
 export const chatController = {};
 
 chatController.getAll = () =>{
-    return chatBuffer;
+
+    //creo el schema
+    const chatSchema = {
+        id: 'chat',
+        messages: chatBuffer
+    }
+
+    //Normalizo
+    const chatNormalized = chatNormalizerDAO.normalize( chatSchema )
+    console.log('Se normalizo el chat');
+
+    console.log(chatNormalized);
+    return chatNormalized;
 }
 
-chatController.addMsg =  (msg) =>{
+chatController.addMsg = (msg) =>{
     chatBuffer.push(msg);
-    tableChat.insertRecord(msg);
+    chatDbDAO.addDocument( msg ); //No utilizo await para no demorar la entrega de mensajes
 }
+
+

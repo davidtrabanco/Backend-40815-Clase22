@@ -11,22 +11,25 @@ export const initWebSocket = (io) =>{
         socket.emit("productsList", await prodController.getAll())
         socket.emit( "chatMsg", await chatController.getAll())
 
+
         //NEW PRODUCT
         socket.on( "newProduct", async (product) =>{
             await prodController.add(product);
             io.sockets.emit("productsList", await prodController.getAll())
         } )
 
+
         //FILTER PROD
         socket.on("filterProd", async (filterParams)=>{
             socket.emit("productsList", await prodController.filter(filterParams))
         });
 
+        
         //NEW MSG
         socket.on( 'newChatMsg', (msg)=>{
             msg.date = getDate();
             chatController.addMsg(msg);
-            io.sockets.emit( "chatMsg",[msg])
+            io.sockets.emit( "newMessage",[msg])
         });
     })
 

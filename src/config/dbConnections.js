@@ -12,10 +12,7 @@ export const dbProductsConfig = {
 };
 
 //Conexión a BD para chat (local)
-export const dbChatConfig = {
-    client: 'sqlite3',
-    connection: {
-      filename: './DB/ecommerce.sqlite',
-    },
-    useNullAsDefault: true
+export const mongoDbCredential = {
+    user: 'davidtrabanco',
+    password: 'coder1234'
 };
